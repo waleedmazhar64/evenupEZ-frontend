@@ -1,0 +1,62 @@
+.submit-btn{
+	font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    color: #FFF;
+    text-align: center;
+    background: #4E0686;
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    border-radius: 5rem;
+    transition: 0.2s all ease;
+    margin-bottom: 10px;
+}
+
+.info_left {
+  position: relative;
+  text-align: center;
+}
+
+a img {
+      width: 2.4rem;
+    position: relative;
+    right: -2.8rem;
+    bottom: 2.3rem;
+}
+
+a input[type="file"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2.4rem; /* Matches the edit icon's size */
+  height: 2.4rem; /* Matches the edit icon's size */
+  opacity: 0; /* Keep the input invisible */
+  cursor: pointer;
+}
+
+.togglePassword{
+  cursor: pointer;
+}
+
+.modal-btn{
+      font-size: 2rem;
+    font-style: normal;
+    font-weight: 600;
+    color: #FFF;
+    background: #4E0686;
+    min-width: 24.5rem;
+    display: block;
+    text-align: center;
+    padding: 1rem 2rem;
+    border-radius: 5rem;
+    transition: 0.2s all ease;
+}
+.modal-btn-cancel{
+  background: #E11F0D;
+}
+
+.modal-link{
+  color: #FFF;
+  cursor: pointer;
+}

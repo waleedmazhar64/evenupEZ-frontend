@@ -1,0 +1,344 @@
+/*
+====================================
+Medium Screen - Others
+====================================
+*/
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+
+	html {
+		font-size: 0.56vw;
+	}
+
+	.main-left-col {
+        -ms-flex: 0 0 27rem;
+        flex: 0 0 27rem;
+        max-width: 27rem;
+    }
+
+    .main-right-col {
+        -ms-flex: 0 0 calc(100% - 27rem);
+        flex: 0 0 calc(100% - 27rem);
+        max-width: calc(100% - 27rem);
+    }
+
+    .main-left {
+		width: 27rem;
+	}
+
+	.menu_item ul li a {
+		padding: 1rem 1.2rem;
+	}
+
+	.metrics_box {
+		padding: 2rem 2rem;
+		gap: 1.8rem;
+	}
+
+	.graph_box2 {
+		padding: 4rem 4rem 2.4rem;
+	}
+
+	/* index page start */
+	.container {
+		max-width: 160rem;
+		width: 100%;
+		margin: 0 auto;
+		padding: 0rem 1.5rem;
+	}
+
+	.arrow1 img {
+		left: -40%;
+	}
+
+	.arrow2 img {
+		right: -40%;
+	}
+
+}
+
+/*
+====================================
+Small Screen - Tablate
+====================================
+*/
+@media screen and (max-width: 991px) {
+
+	.main-wrapper {
+		padding: 0;
+	}
+
+	.main-left-col {
+		width: 27.2rem;
+		height: 100%;
+		background: #fff;
+		position: fixed;
+		top: 0;
+		left: -100%;
+		overflow-y: scroll;
+		transition: .35s;
+		z-index: 1024;
+	}
+
+	.main-left-col.current {
+		left: 0;
+		z-index: 1024;
+	}
+
+	.main-left {
+		height: 100vh;
+		z-index: 1024;
+	}
+
+	.header_title {
+		display: none;
+	}
+
+	.header-part {
+		padding: 2rem 2.4rem;
+	}
+
+	.logo {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		background-color: #FFFFFF;
+		padding: 3.2rem 1.5rem;
+		position: relative;
+		z-index: 1024;
+	}
+
+	.logo img {
+		width: 16rem;
+	}
+
+	.menu_item {
+		padding: 4rem 2rem;
+	}
+
+	.right-mainpart {
+		padding: 2.2rem 2.4rem 2rem;
+	}
+
+	.settings_right {
+		margin-top: 2rem;
+	}
+
+	/*index page start*/
+    .ofcavas-menu {
+        display: block;
+    }
+
+    .hero_left h3,
+    .hero_left p {
+    	max-width: 100%;
+    }
+
+    .feature_left {
+    	margin-left: auto;
+    	margin-right: auto;
+    }
+
+    .arrow1,
+    .arrow2 {
+    	display: none;
+    }
+
+    .guide_item {
+    	margin-top: 4.5rem;
+    }
+
+    .choose_right {
+    	padding-top: 3rem;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+
+	html {
+		font-size: 50%;
+	}
+
+	.metrics_row {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.graph_right {
+		margin-top: 3rem;
+	}
+
+	.users_table table th,
+	.users_table table td {
+		font-size: 1.5rem;
+	}
+
+	/* index page start */
+	.container {
+		max-width: 720px;
+		width: 100%;
+		margin: 0 auto;
+		padding: 0px 15px;
+	}
+}
+
+/*
+================================================
+Medium devices (tablets, 767px and down)
+================================================
+*/
+@media screen and (max-width: 767px) {
+
+	html {
+		font-size: 50%;
+	}
+
+	.header-part {
+		padding: 1.5rem 1.5rem;
+	}
+
+	.right-mainpart {
+		padding: 2rem 1.5rem;
+	}
+
+	.notify_item a {
+		width: 4rem;
+		height: 4rem;
+	}
+
+	.profile_cnt {
+		display: none;
+	}
+
+	.profile_img img {
+		width: 4rem;
+		border-radius: 0.8rem;
+	}
+
+	.search_bar input {
+		width: 25rem;
+	}
+
+	.metrics_row {
+		grid-template-columns: 1fr;
+	}
+
+	.graph_right {
+		margin-top: 3rem;
+	}
+
+	.graph_box1 {
+		padding: 2rem 1.5rem 1.5rem;
+	}
+
+	.graph_box2 {
+		padding: 2rem 2rem 3.5rem;
+	}
+
+	.circle_item {
+		margin-top: 3.5rem;
+	}
+
+	.users_table table {
+		width: 93rem;
+	}
+
+	.users_table {
+		overflow-x: scroll;
+		padding-bottom: 1.5rem;
+	}
+
+	.info_part {
+		display: block;
+	}
+
+	.info_right {
+		width: 100%;
+		margin-top: 2rem;
+	}
+
+	.settings_table table th,
+	.settings_table table td {
+		font-size: 1.46rem;
+	}
+
+	.users_box {
+		padding: 2rem 1.5rem;
+	}
+
+	.settings_bottom a {
+		min-width: 17rem;
+	}
+
+	.notifications_radio {
+		margin-top: 2.4rem;
+	}
+
+	.modal_btn a {
+		min-width: 18rem;
+	}
+
+	.cross_btn button {
+		right: 2rem;
+		top: 2.5rem;
+	}
+
+	/* index page start */
+	.container {
+		max-width: 540px;
+		width: 100%;
+		margin: 0 auto;
+		padding: 0px 15px;
+	}
+
+	.header_logo img {
+		width: 16.5rem;
+	}
+
+	.hero_area {
+		padding: 7rem 0rem;
+	}
+
+	.hero_left h3 {
+		font-size: 3.2rem;
+	}
+
+	.hero_left p {
+		font-size: 1.8rem;
+	}
+
+	.hero_inner img {
+		width: 15rem;
+	}
+
+	.upper_cnt h3 {
+		font-size: 2.85rem;
+	}
+
+	.feature_box p {
+		max-width: 100%;
+	}
+
+	.choose_box {
+		padding: 2.4rem 3rem;
+	}
+
+	.footer_main {
+		display: block;
+		text-align: center;
+	}
+
+	.footer_logo img {
+		width: 13.2rem;
+	}
+
+	.footer_menu ul {
+		display: block;
+		text-align: center;
+		padding-top: 1rem;
+	}
+
+	.footer_menu ul li {
+		margin-top: 1rem;
+	}
+
+}

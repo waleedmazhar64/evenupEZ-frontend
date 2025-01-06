@@ -1,0 +1,15 @@
+<app-auth-layout>
+    <div class="signup_main">
+        <div class="signup_title text-center">
+            <h2>Sign In</h2>
+        </div>
+        <form (submit)="onSubmit()" #signInForm="ngForm">
+            <div class="signup_item">
+                <input type="email" placeholder="Email" [(ngModel)]="credentials.email" name="email" required>
+                <input type="password" placeholder="Password" [(ngModel)]="credentials.password" name="password" required>
+                <a style="color: red;float: right;margin-bottom: 10px;" routerLink="/forgot-password">Forgot Password?</a>
+                <button type="submit" [disabled]="!signInForm.valid">Submit</button>
+            </div>
+        </form>
+    </div>
+</app-auth-layout>

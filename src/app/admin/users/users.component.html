@@ -1,0 +1,33 @@
+<app-layout>
+	<div class="right-mainpart">
+                        <div class="title_cnt">
+                            <h2>Users</h2>
+                        </div>
+                        <div class="users_table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Status</th>
+                                        <th>Registration Date</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let user of users">
+                                        <td>{{ user.name }}</td>
+            							<td>{{ user.email }}</td>
+							            <td><span [ngClass]="{ 'inactive-user': user.status === 'Inactive'}">{{ user.status }}</span></td>
+							            <td>{{ user.created_at | date: 'yyyy-MM-dd' }}</td>
+                                        <td>
+                                            <a style="cursor: pointer;" [ngClass]="{ 'deactivate': user.status === 'Active', 'activate': user.status !== 'Active' }" (click)="toggleStatus(user)">
+									            {{ user.status === 'Active' ? 'Deactivate' : 'Activate' }}
+									        </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>  
+</app-layout>

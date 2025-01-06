@@ -1,0 +1,387 @@
+<app-layout>
+	<div class="right-mainpart">
+                        <div class="tab_area">
+                            <div class="tab_links">
+                                <ul class="nav nav-tabs border-0" role="tablist">
+                                    <li>
+                                        <a href="#" class="nav-link active" data-bs-toggle="tab" data-bs-target="#tab1">My Profile</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="nav-link" data-bs-toggle="tab" data-bs-target="#tab2">Notifications</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="tab1" role="tabpanel">
+                                    <div class="tab_item">
+                                        <div class="settings_part1">
+                                            
+                                                <div class="row">
+                                                    
+                                                    <div class="col-lg-6">
+                                                        <form (ngSubmit)="updateProfile()">
+                                                        <div class="settings_left pe-lg-1">
+                                                            <div class="settings_box">
+                                                                <div class="settings_title">
+                                                                    <h4>Personal Info</h4>
+                                                                </div>
+                                                                <div class="info_part">
+                                                                    
+                                                                    <div class="info_left">
+                                                                      <div class="info_avatar">
+                                                                        <img [src]="getProfileImage()" alt="Profile Avatar" />
+                                                                      </div>
+                                                                      <a style="position: relative; cursor: pointer;">
+                                                                        <img style="cursor:pointer;" src="assets/images/edit.png" alt="Edit Icon" class="edit-icon" />
+                                                                        <input 
+                                                                          type="file" 
+                                                                          accept="image/*" 
+                                                                          style="opacity: 0; position: absolute; top: -17px; left: 13px; width: 3.4rem; height: 3.4rem; cursor: pointer;" 
+                                                                          (change)="onFileChange($event)" 
+                                                                        />
+                                                                      </a>
+                                                                    </div>
+
+                                                                    <div class="info_right">
+                                                                        <div class="row">
+                                                                            <div class="col-md-6">
+                                                                                <div class="info_cnt">
+                                                                                    <label>Full Name</label>
+                                                                                    <input type="text" placeholder="Alex John" [(ngModel)]="user.name" name="name" required>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <div class="info_cnt">
+                                                                                    <label>Username</label>
+                                                                                    <input type="text" placeholder="Alexjohn123" [(ngModel)]="user.user_name" name="user_name" required>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <div class="info_cnt">
+                                                                                    <label>Email</label>
+                                                                                    <input type="email" placeholder="Alexjohn123gmail.com" [(ngModel)]="user.email" type="email" name="email" required>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <div class="info_cnt">
+                                                                                    <label>Phone</label>
+                                                                                    <div id="result">
+                                                                                        <input id="phone" type="text" [(ngModel)]="user.phone" name="phone">
+                                                                                        
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                
+                                                                </div>
+                                                                <div class="settings_bottom">
+                                            <button class="submit-btn" type="submit">Update</button>
+                                            
+                                        </div>
+                                                            </div>
+                                                        </div>
+
+                                                        </form>
+                                                    </div>
+                                                    
+                                                    <div class="col-lg-6">
+  <form (ngSubmit)="changePassword()" #passwordForm="ngForm">
+    <div class="settings_right ps-lg-1">
+      <div class="settings_box">
+        <div class="settings_title">
+          <h4>Change Password</h4>
+        </div>
+        <div class="row">
+          <!-- Current Password -->
+          <div class="col-md-6">
+            <div class="password_cnt">
+              <label>Current Password</label>
+              <div class="password_inner">
+                <input
+                  [type]="passwordVisibility.current ? 'text' : 'password'"
+                  id="current_password"
+                  name="current_password"
+                  placeholder="********"
+                  [(ngModel)]="passwordData.current_password"
+                  #currentPassword="ngModel"
+                  required
+                />
+                <span class="togglePassword" (click)="togglePasswordVisibility('current')">
+                  <img src="assets/images/eye.svg" alt="Toggle Password Visibility" />
+                </span>
+                <div *ngIf="validationErrors.current_password" class="text-danger">
+                  {{ validationErrors.current_password }}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- New Password -->
+          <div class="col-md-6">
+            <div class="password_cnt">
+              <label>New Password</label>
+              <div class="password_inner">
+                <input
+                  [type]="passwordVisibility.new ? 'text' : 'password'"
+                  id="new_password"
+                  name="new_password"
+                  placeholder="********"
+                  [(ngModel)]="passwordData.new_password"
+                  #newPassword="ngModel"
+                  required
+                  minlength="8"
+                />
+                <span class="togglePassword" (click)="togglePasswordVisibility('new')">
+                  <img src="assets/images/eye.svg" alt="Toggle Password Visibility" />
+                </span>
+                <div *ngIf="validationErrors.new_password" class="text-danger">
+                  {{ validationErrors.new_password }}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Confirm Password -->
+          <div class="col-md-6">
+            <div class="password_cnt">
+              <label>Confirm Password</label>
+              <div class="password_inner">
+                <input
+                  [type]="passwordVisibility.confirm ? 'text' : 'password'"
+                  id="confirm_password"
+                  name="confirm_password"
+                  placeholder="********"
+                  [(ngModel)]="passwordData.new_password_confirmation"
+                  #confirmPassword="ngModel"
+                  required
+                />
+                <span class="togglePassword" (click)="togglePasswordVisibility('confirm')">
+                  <img src="assets/images/eye.svg" alt="Toggle Password Visibility" />
+                </span>
+                <div *ngIf="validationErrors.new_password_confirmation" class="text-danger">
+                  {{ validationErrors.new_password_confirmation }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="settings_bottom">
+          <button style="cursor: pointer;" class="submit-btn" type="submit" [disabled]="passwordForm.invalid">Update</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+                                                    
+                                                </div>
+        
+                                        </div>
+                                        <div class="settings_part2">
+                                            <div class="users_box">
+                                                <div class="users_heading">
+                                                    <h3>Users</h3>
+                                                    <a class="modal-link" data-bs-toggle="modal" data-bs-target="#updateModal">Add New User</a>
+
+                                                </div>
+                                                <div class="settings_table">
+                                                    <table>
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Name</th>
+                                                                <th>Username</th>
+                                                                <th>Email</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr *ngFor="let user of users">
+                                                                <td>{{user.name}}</td>
+                                                                <td>{{user.user_name}}</td>
+                                                                <td>{{user.email}}</td>
+                                                            </tr>
+                                                            
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>                                    
+                                </div>
+                                <div class="tab-pane" id="tab2" role="tabpanel">
+                                    <div class="tab_item">
+                                        <div class="notify_area">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="pe-md-4">
+                                                        <div class="notifications_title">
+                                                            <h4>Notification Settings</h4>
+                                                        </div>
+                                                        <div class="notifications_box">
+                                                            <div class="notification_item">
+                                                                <p>Email Notification</p>
+                                                                <label class="switch">
+                                                                    <input type="checkbox" [(ngModel)]="notificationSettings.email_notification">
+                                                                    <span class="slider round"></span>
+                                                                </label>
+                                                            </div>
+                                                            <div class="notification_item">
+                                                                <p>SMS Notification</p>
+                                                                <label class="switch">
+                                                                    <input type="checkbox" [(ngModel)]="notificationSettings.sms_notification">
+                                                                    <span class="slider round"></span>
+                                                                </label>
+                                                            </div>
+                                                            <div class="notification_item">
+                                                                <p>Push Notification</p>
+                                                                <label class="switch">
+                                                                    <input type="checkbox" [(ngModel)]="notificationSettings.push_notification">
+                                                                    <span class="slider round"></span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="ps-md-4 notifications_radio">
+                                                        <div class="notifications_title">
+                                                            <h4>Notification Frequency</h4>
+                                                        </div>
+                                                        <div class="notifications_box">
+                                                            <div class="radio_btn">
+                                                                <input
+                  type="radio"
+                  id="hourly"
+                  name="notification_frequency"
+                  value="hourly"
+                  [(ngModel)]="notificationSettings.notification_frequency"
+                />
+                                                                <label for="radio1">Hourly (Every Hour)</label>
+                                                            </div>
+                                                            <div class="radio_btn">
+                                                                <input
+                  type="radio"
+                  id="daily"
+                  name="notification_frequency"
+                  value="daily"
+                  [(ngModel)]="notificationSettings.notification_frequency"
+                />
+                                                                <label for="radio2">Daily (Once in a day)</label>
+                                                            </div>
+                                                            <div class="radio_btn">
+                                                                <input
+                  type="radio"
+                  id="weekly"
+                  name="notification_frequency"
+                  value="weekly"
+                  [(ngModel)]="notificationSettings.notification_frequency"
+                />
+                                                                <label for="radio3">Weekly (Once in a week)</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="settings_bottom" style="margin-top: 0px;">
+                                            <a style="color: white; cursor: pointer;" (click)="updateNotificationSettings()">Update</a>
+                                            <a class="cancel">Cancel</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>  
+                    </div>   
+
+
+                    <!-- Modal start-->
+    <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body main_modal">
+                    <div class="cross_btn">
+                        <button type="button" data-bs-dismiss="modal" aria-label="Close">
+                            <img src="assets/images/cross.svg" alt="">
+                        </button>
+                    </div>
+                    <div class="modal_title">
+                        <h3>Add New User</h3>
+                    </div>
+                    <div class="modal_item">
+                        <form #addUserForm="ngForm" (ngSubmit)="addUser(addUserForm)">
+            <div class="modal_cnt">
+              <label for="name">Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                [(ngModel)]="newUser.name"
+                placeholder="John Smith"
+                required
+                #name="ngModel"
+                class="form-control"
+              />
+              <div *ngIf="name.invalid && name.touched" class="text-danger">Name is required.</div>
+            </div>
+            <div class="modal_cnt">
+              <label for="user_name">Username</label>
+              <input
+                type="text"
+                id="user_name"
+                name="user_name"
+                [(ngModel)]="newUser.user_name"
+                placeholder="johnsmith123"
+                required
+                #user_name="ngModel"
+                class="form-control"
+              />
+              <div *ngIf="user_name.invalid && user_name.touched" class="text-danger">Username is required.</div>
+            </div>
+            <div class="modal_cnt">
+              <label for="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                [(ngModel)]="newUser.email"
+                placeholder="johnsmith123@gmail.com"
+                required
+                email
+                #email="ngModel"
+                class="form-control"
+              />
+              <div *ngIf="email.invalid && email.touched" class="text-danger">Enter a valid email address.</div>
+            </div>
+            <div class="modal_cnt">
+              <label for="password">Password</label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                [(ngModel)]="newUser.password"
+                placeholder="********"
+                required
+                minlength="8"
+                #password="ngModel"
+                class="form-control"
+              />
+              <div *ngIf="password.invalid && password.touched" class="text-danger">
+                Password must be at least 8 characters long.
+              </div>
+            </div>
+            <div class="modal_btn">
+              <button type="submit" class="modal-btn" [disabled]="addUserForm.invalid">Save</button>
+              <button type="button" class="modal-btn modal-btn-cancel" data-bs-dismiss="modal">Cancel</button>
+            </div>
+          </form>
+                
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal end -->
+</app-layout>

@@ -1,0 +1,37 @@
+<app-layout>
+	<div class="right-mainpart">
+                        <div class="title_cnt">
+                            <h2>Groups</h2>
+                        </div>
+                        <div class="users_table groupm_table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Group Name</th>
+                                        <th>Members</th>
+                                        <th>Status</th>
+                                        <th>Admin</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let group of groups">
+                                        <td>{{ group.name }}</td>
+                                        <td>{{ group.users.length }}</td>
+                                        <td><span [ngClass]="{ 'inactive-user': group.status === 'Inactive'}">{{ group.status }}</span></td>
+                                        <td>{{ group.admin?.name }}</td>
+                                        <td>
+                                          <a
+                                            style="cursor: pointer;"
+                                            [ngClass]="{ 'flagged': group.status === 'Inactive', 'unflagged': group.status === 'Active' }"
+                                            (click)="toggleStatus(group)"
+                                          >
+                                            {{ group.status === 'Active' ? 'Flagged' : 'Unflag' }}
+                                          </a>
+                                        </td>
+                                      </tr>                                  
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>  
+</app-layout>

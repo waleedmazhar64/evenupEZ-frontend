@@ -1,9 +1,11 @@
-import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
-import { provideRouter } from '@angular/router';
+export const AppConfig = {
+  apiUrl: 'http://localhost:8000/api', // Local API URL
+  authUrl: 'http://localhost:8000',
 
-import { routes } from './app.routes';
-import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
-
-export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideClientHydration(withEventReplay())]
+  liveApiUrl: 'https://your-live-api-domain.com/api', // Live API URL
+  liveauthUrl: 'http://localhost:8000/',
 };
+
+// Export the current API URL based on environment
+export const CurrentApiUrl = AppConfig.apiUrl;
+export const CurrentAuthUrl = AppConfig.authUrl;

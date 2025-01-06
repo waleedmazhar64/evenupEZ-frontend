@@ -1,0 +1,16 @@
+<app-auth-layout>
+    <div class="signup_main">
+        <div class="signup_title text-center">
+            <h2>Sign Up</h2>
+        </div>
+        <form (submit)="onSubmit()" #signUpForm="ngForm">
+            <div class="signup_item">
+                <input type="text" placeholder="Full Name" [(ngModel)]="user.name" name="name" required>
+                <input type="email" placeholder="Email" [(ngModel)]="user.email" name="email" required>
+                <input type="password" placeholder="Password" [(ngModel)]="user.password" name="password" required>
+                <input type="password" placeholder="Confirm Password" [(ngModel)]="user.password_confirmation" name="password_confirmation" required>
+                <button type="submit" [disabled]="!signUpForm.valid">Submit</button>
+            </div>
+        </form>
+    </div>
+</app-auth-layout>

@@ -5,7 +5,17 @@
   "projects": {
     "evenupEZ-frontend": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "standalone": false
+        },
+        "@schematics/angular:directive": {
+          "standalone": false
+        },
+        "@schematics/angular:pipe": {
+          "standalone": false
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -23,18 +33,21 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "public"
-              }
+                "input": "public",
+              },
+              "src/favicon.ico",
+              "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+                "src/styles.css",
+                "src/assets/css/bootstrap.min.css",
+                "src/assets/css/helper.css",
+                "src/assets/css/style.css",
+                "src/assets/css/responsive.css",
+                "node_modules/ngx-spinner/animations/line-scale.css",
+                "node_modules/ngx-toastr/toastr.css" 
             ],
-            "scripts": [],
-            "server": "src/main.server.ts",
-            "outputMode": "server",
-            "ssr": {
-              "entry": "src/server.ts"
-            }
+            "scripts": []
           },
           "configurations": {
             "production": {

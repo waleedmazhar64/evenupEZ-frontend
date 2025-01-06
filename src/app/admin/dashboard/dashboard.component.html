@@ -1,0 +1,133 @@
+<app-layout>
+	<div class="right-mainpart">
+                        <div class="title_cnt">
+                            <h2>Key metrics</h2>
+                        </div>
+                        <div class="metrics_row">
+                            <div class="metrics_box">
+                                <div class="metrics_icon">
+                                    <img src="assets/images/metrics_icon-1.svg" alt="">
+                                </div>
+                                <div class="metrics_cnt">                                    
+                                    <p>Total Groups</p>
+                                    <h4>{{groups}}</h4>
+                                </div>
+                            </div>
+                            <div class="metrics_box">
+                                <div class="metrics_icon">
+                                    <img src="assets/images/metrics_icon-2.svg" alt="">
+                                </div>
+                                <div class="metrics_cnt">                                    
+                                    <p>Total Users</p>
+                                    <h4>{{users}}</h4>
+                                </div>
+                            </div>
+                            <div class="metrics_box">
+                                <div class="metrics_icon">
+                                    <img src="assets/images/metrics_icon-3.svg" alt="">
+                                </div>
+                                <div class="metrics_cnt">                                    
+                                    <p>Currently Online Users</p>
+                                    <h4>120</h4>
+                                </div>
+                            </div>
+                            <div class="metrics_box">
+                                <div class="metrics_icon">
+                                    <img src="assets/images/metrics_icon-4.svg" alt="">
+                                </div>
+                                <div class="metrics_cnt">                                    
+                                    <p>Payment Settled</p>
+                                    <h4>85%</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="graph_part">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="graph_left pe-lg-1">
+                                        <div class="title_cnt">
+                                            <h3>User Statistics</h3>
+                                        </div>
+                                        <div class="graph_box1">
+                                            <div class="graph_btn">
+                                                <div class="dropdown">
+                                                    <button type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        Weekly <img src="assets/images/down.svg" alt="">
+                                                    </button>
+                                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                                        <li><a class="dropdown-item" href="#">Monthly</a></li>
+                                                        <li><a class="dropdown-item" href="#">Yearly</a></li>
+                                                        <li><a class="dropdown-item" href="#">Daily</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="graph_item">
+                                                <img src="assets/images/graph.svg" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="graph_right ps-lg-1">
+                                        <div class="title_cnt">
+                                            <h3>Payment Methods</h3>
+                                        </div>
+                                        <div class="graph_box2">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="circle_item">
+                                                        <img src="assets/images/circle-1.svg" alt="">
+                                                        <p>Credit Card</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="circle_item">
+                                                        <img src="assets/images/circle-2.svg" alt="">
+                                                        <p>PayPal</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="circle_item">
+                                                        <img src="assets/images/circle-3.svg" alt="">
+                                                        <p>Bank Transfer</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="groups_part">
+                            <div class="title_cnt">
+                                <h3>Top Active Groups</h3>
+                            </div>
+                            <div class="groups_table">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Group</th>
+                                            <th>Transaction</th>
+                                            <th>Interactions</th>
+                                            <th>Members</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Group A</td>
+                                            <td>150</td>
+                                            <td>200</td>
+                                            <td>50</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Group B</td>
+                                            <td>120</td>
+                                            <td>170</td>
+                                            <td>45</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div> 
+</app-layout>

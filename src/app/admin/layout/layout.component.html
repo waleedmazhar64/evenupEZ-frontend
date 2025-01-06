@@ -1,0 +1,98 @@
+<!-- main-wrapper start -->
+    <main class="main-wrapper">
+        <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#4e0686" type = "line-scale" [fullScreen] = "true"></ngx-spinner>
+        <div class="row g-0">
+            <div class="col-lg-3 main-left-col">
+                <div class="main-left">
+                    <div class="logo">
+                        <a routerLink="/home">
+                            <img src="assets/images/logo.svg" alt="">
+                        </a>
+                        <div class="hamburger-menu d-lg-none">
+                            <span class="line-top"></span>
+                            <span class="line-center"></span>
+                            <span class="line-bottom"></span>
+                        </div>
+                    </div>
+                    <div class="menu_item">
+                        <ul>
+                            <li>
+                                <a routerLink="/admin/dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                                    <img src="assets/images/dashboard.png" alt="">
+                                    <span>Dashboard</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a routerLink="/admin/users" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                                    <img src="assets/images/user.png" alt="">
+                                    <span>User Management</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a routerLink="/admin/groups" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                                    <img src="assets/images/group.png" alt="">
+                                    <span>Group Management</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a routerLink="/admin/settings" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                                    <img src="assets/images/settings.png" alt="">
+                                    <span>Settings</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-9 main-right-col">
+                <div class="main-right">
+                    <div class="header-part">
+                        <div class="header_left">
+                            <div class="hamburger-menu d-lg-none">
+                                <span class="line-top"></span>
+                                <span class="line-center"></span>
+                                <span class="line-bottom"></span>
+                            </div>
+                            <div class="header_title">
+                                <h1>{{ headerTitle }}</h1>
+                            </div>
+                        </div>
+                        <div class="search_bar">
+                            <input type="text" placeholder="Search">
+                        </div>
+                        <div class="header_right">
+                            <div class="notify_item">
+                                <a href="#">
+                                    <img src="assets/images/notification.svg" alt="">
+                                </a>
+                            </div>
+                            <div class="profile_item" (click)="toggleDropdown($event)">
+							    <a href="javascript:void(0)">
+							        <div class="profile_cnt">
+							            <h4>{{ userName }}</h4>
+							            <p>Admin</p>
+							        </div>
+							        <div class="profile_img">
+                                        <img [src]="userImg ? imageUrl + userImg : 'assets/images/avatar.png'" alt="Profile Avatar" />
+							        </div>
+							    </a>
+
+							    <!-- Dropdown Menu -->
+							    <div *ngIf="dropdownVisible" class="dropdown_menu">
+							        <ul>
+							            <li (click)="goToSettings()">Settings</li>
+							            <li (click)="logout()">Logout</li>
+							        </ul>
+							    </div>
+							</div>
+
+
+                        </div>                        
+                    </div>
+
+        			<ng-content></ng-content>              
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- main-wrapper end -->
