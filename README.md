@@ -1,59 +1,60 @@
-# EvenupEZFrontend
+# 💸 evenupEZ – Frontend (Angular)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.5.
+**evenupEZ Frontend** is the Angular-based UI for the evenupEZ platform.  
+It provides an intuitive, modern interface for users to **create groups, add shared expenses, view balances, and settle payments** — just like Splitwise, but simple and customizable.  
 
-## Development server
 
-To start a local development server, run:
+## ✨ Features
 
-```bash
-ng serve
-```
+🎨 **Modern UI** – Built with Angular & responsive design  
+👥 **Group Management** – Create, join, and manage groups visually  
+➕ **Add Expenses** – Split equally or by custom shares  
+📊 **Balance Overview** – Clear summary of who owes whom  
+📩 **Invitations** – Invite friends to groups easily  
+🔑 **Secure Auth** – Integrated with Laravel backend API  
+⚡ **Real-Time Updates** – Seamless experience with async API calls  
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-## Code scaffolding
+## 🛠 Tech Stack
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+| Component        | Technology |
+|-----------------|-----------|
+| **Frontend**    | [Angular 17+](https://angular.dev) |
+| **UI Library**  | Bootstrap / Tailwind (if used) |
+| **State Mgmt**  | RxJS + Angular Services |
+| **Backend API** | evenupEZ Laravel REST API |
+| **Deployment**  | Compatible with Nginx / Apache |
 
-```bash
-ng generate component component-name
-```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## ⚙️ Installation & Setup
 
-```bash
-ng generate --help
-```
+### Clone the repo
+    
+    git clone https://github.com/your-username/evenupEZ-frontend.git
+    cd evenupEZ-frontend
 
-## Building
 
-To build the project run:
+### Install dependencies
+    
+    npm install
 
-```bash
-ng build
-```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+### Configure API URL
 
-## Running unit tests
+Update src/environments/environment.ts with your backend API URL:
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+    export const environment = {
+      production: false,
+      apiUrl: 'http://127.0.0.1:8000/api'
+    };
 
-```bash
-ng test
-```
 
-## Running end-to-end tests
+### Run the app
 
-For end-to-end (e2e) testing, run:
+    ng serve
 
-```bash
-ng e2e
-```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+App will run at http://localhost:4200
 
-## Additional Resources
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
