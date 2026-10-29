@@ -1,60 +1,43 @@
-# 💸 evenupEZ – Frontend (Angular)
+# EvenUpEZ — Expense-sharing frontend
 
-**evenupEZ Frontend** is the Angular-based UI for the evenupEZ platform.  
-It provides an intuitive, modern interface for users to **create groups, add shared expenses, view balances, and settle payments** — just like Splitwise, but simple and customizable.  
+An Angular 19 application for group-expense workflows, paired with the [EvenUpEZ API](https://github.com/waleedmazhar64/evenupEZ-backend). This repository contains the client source.
 
+## Review the implementation
 
-## ✨ Features
+| Area | Entry point |
+| --- | --- |
+| Navigation and lazy-loaded admin area | [Routing](src/app/app-routing.module.ts) |
+| Authentication requests | [Auth service](src/app/services/auth.service.ts) |
+| Group API integration | [Group service](src/app/services/group.service.ts) |
+| User API integration | [User service](src/app/services/user.service.ts) |
+| API configuration | [App config](src/app/app.config.ts) |
 
-🎨 **Modern UI** – Built with Angular & responsive design  
-👥 **Group Management** – Create, join, and manage groups visually  
-➕ **Add Expenses** – Split equally or by custom shares  
-📊 **Balance Overview** – Clear summary of who owes whom  
-📩 **Invitations** – Invite friends to groups easily  
-🔑 **Secure Auth** – Integrated with Laravel backend API  
-⚡ **Real-Time Updates** – Seamless experience with async API calls  
+The backend [expense-allocation case study](https://github.com/waleedmazhar64/evenupEZ-backend/blob/main/docs/expense-allocation-case-study.md) explains a tested fix for penny loss during equal splits. Those backend checks do not establish frontend test coverage.
 
+## Local development
 
-## 🛠 Tech Stack
+```bash
+git clone https://github.com/waleedmazhar64/evenupEZ-frontend.git
+cd evenupEZ-frontend
+npm ci
+```
 
-| Component        | Technology |
-|-----------------|-----------|
-| **Frontend**    | [Angular 17+](https://angular.dev) |
-| **UI Library**  | Bootstrap / Tailwind (if used) |
-| **State Mgmt**  | RxJS + Angular Services |
-| **Backend API** | evenupEZ Laravel REST API |
-| **Deployment**  | Compatible with Nginx / Apache |
+Use a Node/npm version compatible with the Angular 19 dependency set in [package.json](package.json). Configure `apiUrl` and `authUrl` in [src/app/app.config.ts](src/app/app.config.ts) to point to your local backend; the checked-in selection currently points to a hosted API. Local values are normally `http://localhost:8000/api` and `http://localhost:8000`.
 
+```bash
+npm start
+npm run build
+npm test
+```
 
-## ⚙️ Installation & Setup
+The development server normally uses port 4200. Start the backend separately. The registered signup route is currently `/registerer`; inspect routing before changing links.
 
-### Clone the repo
-    
-    git clone https://github.com/your-username/evenupEZ-frontend.git
-    cd evenupEZ-frontend
+## Scope and verification
 
+The source includes login/recovery screens, an admin feature area and service-based HTTP integration. Asynchronous HTTP requests alone are not a real-time push system. No payment processing or production-security claim is made here.
 
-### Install dependencies
-    
-    npm install
+Build and browser tests were not run during this documentation update. Use synthetic data when evaluating the paired prototype.
 
+## Author
 
-### Configure API URL
-
-Update src/environments/environment.ts with your backend API URL:
-
-    export const environment = {
-      production: false,
-      apiUrl: 'http://127.0.0.1:8000/api'
-    };
-
-
-### Run the app
-
-    ng serve
-
-
-App will run at http://localhost:4200
-
-
-
+[Waleed Mazhar — Senior Software Engineer](https://github.com/waleedmazhar64)
